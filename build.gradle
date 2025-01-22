@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+test {
+    useJUnitPlatform() // Para JUnit 5, caso use JUnit 4, substitua por useJUnit()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.10.0'
+}

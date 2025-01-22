@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Project/MainNumberUtils.iml" filepath="$PROJECT_DIR$/Project/MainNumberUtils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Parameterized Tests/Parameterized Tests.iml" filepath="$PROJECT_DIR$/Parameterized Tests/Parameterized Tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project_MainNumberUtils/RefactNumberUtils/RefactNumberUtils.iml" filepath="$PROJECT_DIR$/Project_MainNumberUtils/RefactNumberUtils/RefactNumberUtils.iml" />
+    </modules>
+  </component>
+</project>
