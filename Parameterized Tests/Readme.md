@@ -72,3 +72,5 @@ BUILD SUCCESSFUL in 2s
 - **Testar Outras Funções** : Crie mais testes parametrizados para diferentes funcionalidades da classe `NumberUtils`.
 
 Este README agora inclui a dependência do Gradle e a explicação do teste parametrizado atualizado, com os novos valores de entrada para os testes e as instruções para execução.
+
+TKS
