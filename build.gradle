@@ -12,3 +12,8 @@ dependencies {
 test {
     useJUnitPlatform() // Para JUnit 5, caso use JUnit 4, substitua por useJUnit()
 }
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}

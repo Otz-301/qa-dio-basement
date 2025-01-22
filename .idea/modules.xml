@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Projeto01/Projeto01.iml" filepath="$PROJECT_DIR$/Projeto01/Projeto01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/qa-dio-basement.iml" filepath="$PROJECT_DIR$/.idea/qa-dio-basement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project/MainNumberUtils.iml" filepath="$PROJECT_DIR$/Project/MainNumberUtils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project_MainNumberUtils/RefactNumberUtils/RefactNumberUtils.iml" filepath="$PROJECT_DIR$/Project_MainNumberUtils/RefactNumberUtils/RefactNumberUtils.iml" />
     </modules>
   </component>
 </project>
