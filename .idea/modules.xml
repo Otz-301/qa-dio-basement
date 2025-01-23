@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CCOAIntermedProjects/CCOIntermedProjects.iml" filepath="$PROJECT_DIR$/CCOAIntermedProjects/CCOIntermedProjects.iml" />
       <module fileurl="file://$PROJECT_DIR$/ComplexObjects/ComplexObjects.iml" filepath="$PROJECT_DIR$/ComplexObjects/ComplexObjects.iml" />
       <module fileurl="file://$PROJECT_DIR$/DependencesMockito/DependencesMockito.iml" filepath="$PROJECT_DIR$/DependencesMockito/DependencesMockito.iml" />
       <module fileurl="file://$PROJECT_DIR$/ExceptionsTest/ExceptionsTest.iml" filepath="$PROJECT_DIR$/ExceptionsTest/ExceptionsTest.iml" />
