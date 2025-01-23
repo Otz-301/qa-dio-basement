@@ -1,0 +1,70 @@
+# Tutorial: Modificadores de Acesso em Java
+
+## Objetivo
+
+Entender como os modificadores de acesso (public, private e default) controlam a visibilidade e o comportamento dos atributos e métodos em uma aplicação Java.
+
+------
+
+## O que são Modificadores de Acesso?
+
+Modificadores de acesso definem o nível de visibilidade de classes, atributos e métodos dentro de um programa Java. Os mais comuns são:
+
+- **Public**: Acesso irrestrito; visível em todo o projeto.
+
+- **Private**: Acesso restrito à própria classe.
+
+- ## **Default** (sem especificar): Acesso permitido apenas dentro do mesmo pacote.
+
+  ## Código de Exemplo
+
+  Vamos analisar um exemplo prático que demonstra o uso de modificadores de acesso.
+
+  `public class Main {   public String nome; // Modificador public: visível em todo o projeto   private int salary; // Modificador private: acessível apenas dentro da classe Main`
+
+  ```java
+  public static void main(String[] args) {
+      Main meuMain = new Main();
+      meuMain.nome = "João";
+      meuMain.atualizaSalario(4000); // Atualiza o salário usando um método público
+      System.out.println("Nome: " + meuMain.nome);
+      System.out.println("Salário: " + meuMain.getSalary());
+  }
+  
+  // Método público para atualizar o salário
+  public void atualizaSalario(int novoSalario) {
+      this.salary = novoSalario;
+  }
+  
+  // Método público para obter o valor do salário
+  public int getSalary() {
+      return this.salary;
+  }
+  ```
+
+  }
+
+  ## Explicação do Código
+
+  ### Funcionamento do **public**:
+
+  - `public String nome;`
+    - O atributo `nome` é público e pode ser acessado diretamente de qualquer classe ou método no programa.
+
+  ### Funcionamento do **private**:
+
+  - `private int salary;`
+    - O atributo `salary` só pode ser acessado diretamente dentro da classe `Main`.
+    - Para manipular `salary`, usamos os métodos públicos `atualizaSalario` e `getSalary`.
+
+  ### Benefício do Encapsulamento:
+
+  - Proteger os dados da classe ao permitir acesso apenas através de métodos controlados (getters e setters).
+
+  ### Default:
+
+  - Quando nenhum modificador é especificado, o acesso é limitado ao pacote.
+
+    - ## Por exemplo:
+
+      `class Pessoa {   void criaMain() {   Main meuMain = new Main();   System.out.println(meuMain.nome); // Funciona, pois está no mesmo pacote   // System.out.println(meuMain.salary); // Erro, pois salary é privado   }   }`
