@@ -1,0 +1,154 @@
+# **Trabalhando com Classes Abstratas em Java**
+
+Neste tutorial, vamos aprender a trabalhar com **classes abstratas** em Java, que são úteis quando você deseja criar uma classe base que define um contrato para suas subclasses, mas não deseja instanciar a classe base diretamente. Vamos criar um exemplo de geometria, onde temos uma classe abstrata `Forma` e duas subclasses concretas: `Circulo` e `Retangulo`.
+
+---
+
+## **📚 O que você vai aprender?**
+
+- **Classes Abstratas**: Como criar classes que não podem ser instanciadas, mas fornecem métodos que devem ser implementados por subclasses.
+- **Métodos Abstratos**: Como definir métodos que devem ser implementados pelas subclasses.
+- **Polimorfismo**: Como usar referências de classe base (`Forma`) para armazenar objetos de subclasses (`Circulo`, `Retangulo`).
+
+---
+
+## **🔨 Passos para Implementação**
+
+### **1️⃣ Criar a Classe Abstrata `Forma`**
+
+A classe `Forma` será uma classe abstrata que define um contrato para o cálculo da área das formas.
+
+```java
+// Forma.java
+abstract class Forma {
+    // Método abstrato que deve ser implementado pelas subclasses
+    abstract double calcularArea();
+}
+```
+
+
+
+### **2️⃣ Criar uma Subclasse`Circulo`**
+
+Uma classe `Circulo`herda d`Forma`e`calcularArea`,`π * raio^2`.
+
+// Circulo.java
+class Circulo extends Forma {
+    double raio;
+
+    // Construtor para inicializar o raio
+    public Circulo(double raio) {
+        this.raio = raio;
+    }
+    
+    // Implementação do método calcularArea para o círculo
+    @Override
+    double calcularArea() {
+        return Math.PI * raio * raio;
+    }
+}
+
+### **3️⃣ Criar uma Subclasse`Retangulo`**
+
+Uma aula `Retangulo`também`Forma`e implemente`calcularArea`, que calcula a área do retângulo em você`largura * altura`.
+
+
+
+// Retangulo.java
+class Retangulo extends Forma {
+    double largura;
+    double altura;
+
+    // Construtor para inicializar largura e altura
+    public Retangulo(double largura, double altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
+    
+    // Implementação do método calcularArea para o retângulo
+    @Override
+    double calcularArea() {
+        return largura * altura;
+    }
+}
+
+
+
+### **4️⃣ Crie uma aula `Main`para testar**
+
+No método `main`, vamos criar instâncias de `Circulo`e `Retangulo`, e usar o polimorfismo para calcular e exibir as áreas de ambos.
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Criando objetos de Circulo e Retangulo
+        Forma circulo = new Circulo(5);  // Raio = 5
+        Forma retangulo = new Retangulo(4, 6);  // Largura = 4, Altura = 6
+
+        // Exibindo as áreas
+        System.out.println("Área do círculo: " + circulo.calcularArea());   // 78.54
+        System.out.println("Área do retângulo: " + retangulo.calcularArea()); // 24.0
+    }
+}
+
+## **🖥️ Resultado Esperado**
+
+Quando você rodar o código, a saída no console será:
+
+Área do círculo: 78.53981633974483
+Área do retângulo: 24.0
+
+## **🚀 Tutorial para Rodar e Testar o Código**
+
+### **1️⃣ Configurar o Ambiente de Desenvolvimento**
+
+1. Verifique se o Java está instalado no seu computador
+
+    . Execute o comando:
+
+   ```
+   java -version
+   ```
+
+2. Caso não tenha o Java instalado, faça o download e instale o **Java JDK** .
+
+3. Use um IDE (IntelliJ IDEA, Eclipse) ou um editor de texto como **Visual Studio Code** .
+
+### **2️⃣ Criar Arquivos de Código**
+
+1. **Crie três arquivos de código** : `Forma.java`, `Circulo.java`, `Retangulo.java`, `Main.java`.
+2. **Copie e cole o código acima** nos arquivos relacionados.
+
+### **3️⃣ Compilar e executar o código**
+
+1. Abra o terminal ou console do seu IDE.
+2. Navegue até o diretório onde os arquivos estão localizados.
+3. Compile os arquivos com o comando:
+
+javac Forma.java Circulo.java Retangulo.java Main.java
+
+
+
+Após a compilação, execute o programa com o comando: java Main
+
+
+
+### **4️⃣ Teste as Funcionalidades**
+
+- **Testar a classe abstrata:** Certifique-se de que você não consegue instanciar a classe `Forma`, pois ela é abstrata.
+- **Calcular áreas:** Verifique se o cálculo da área do círculo e do retângulo está correto.
+
+## **🎯 Conclusão**
+
+Neste tutorial, aprendemos a trabalhar com **classes abstratas** e **métodos abstratos** em Java. Criamos uma classe `Forma`com um método abstrato `calcularArea`, e suas subclasses `Circulo`e `Retangulo`implementamos esse método de forma específica. O uso do polimorfismo permitiu que tratássemos essas formas de maneira geral, mesmo sabendo que cada uma possui uma correção distinta do cálculo de área.
+
+💡 **Dica:** Agora que você conhece o básico de classes abstratas, experimente criar novas formas, como `Triangulo`ou `Quadrado`, e implemente os cálculos relevantes de área! 👨‍💻👩‍💻
+
+
+
+
+
+
+
+
+
