@@ -1,0 +1,78 @@
+# 🛒 Gerenciando Produtos de Supermercado
+
+Este projeto cria uma classe `Produto` para gerenciar e exibir informações sobre produtos de um supermercado. 📦✨
+
+---
+
+## **📚 O que você vai aprender?**
+
+- Trabalhar com objetos e métodos dinâmicos em Java. ✅  
+- Criar e manipular instâncias de uma classe. 🛠️  
+
+---
+
+## **🔨 Passos para Implementação**
+
+### **1️⃣ Criar a Classe `Produto`**
+
+Implemente a classe `Produto` com atributos para armazenar o nome e o preço de um produto, e um método para exibir suas informações.
+
+```java
+// Produto.java
+public class Produto {
+    String nome;
+    double preco;
+
+    // Método para exibir os detalhes do produto
+    void exibirDetalhes() {
+        System.out.println("Produto: " + nome + ", Preço: R$" + preco);
+    }
+
+    public static void main(String[] args) {
+        // Criando o primeiro produto
+        Produto produto1 = new Produto();
+        produto1.nome = "Arroz";
+        produto1.preco = 20.0;
+
+        // Criando o segundo produto
+        Produto produto2 = new Produto();
+        produto2.nome = "Feijão";
+        produto2.preco = 8.0;
+
+        // Criando o terceiro produto
+        Produto produto3 = new Produto();
+        produto3.nome = "Macarrão";
+        produto3.preco = 5.5;
+
+        // Exibindo os detalhes de cada produto
+        produto1.exibirDetalhes();
+        produto2.exibirDetalhes();
+        produto3.exibirDetalhes();
+    }
+}
+```
+
+## **🖥️ Resultado Esperado**
+
+Ao executar o código, a saída no console será:
+
+Produto: Arroz, Preço: R$20.0  
+Produto: Feijão, Preço: R$8.0  
+Produto: Macarrão, Preço: R$5.5  
+
+## **🎯 Explicação do Código**
+
+1. **Atributos de Classe `Produto`:**
+   - `nome`: Armazena o nome do produto.
+   - `preco`: Armazena o preço do produto.
+2. **Método `exibirDetalhes`:**
+   - Imprima o nome e o preço do produto sem formato especificado.
+3. **Método `main`:**
+   - Crie três objetos `Produto`com valores distintos.
+   - Veja os detalhes de cada produto utilizando o método `exibirDetalhes`.
+
+## **🎉 Conclusão**
+
+Este projeto mostra como criar e gerenciar objetos em Java, além de destacar o uso de métodos dinâmicos para manipulação e exibição de dados. 🚀
+
+💡 **Dica:** Experimente adicionar novos atributos, como `categoria`ou `estoque`, para tornar a aula `Produto`mais completa! 🛍️
