@@ -12,19 +12,4 @@ public class Main {
             System.out.println("i = " + i);
         }
     }
-
-    // Class Carro
-// Carro.java(Pacote Carro)
-    public static class MainCarro {
-    // Atributo com modificador oublic (acessivel de qualquer lugar)
-    public String marca;
-    private double preco;
-
-    public void setPreco(double preco){
-            this.preco = preco;
-        }
-        public double getPreco(){
-            return preco;
-    }
-}
 }

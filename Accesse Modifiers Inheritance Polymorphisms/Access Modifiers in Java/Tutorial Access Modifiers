@@ -1,0 +1,169 @@
+// *Os modoficadores de acesso em Java são uma parte fundamental da orientação
+a objetos, pois determinam quem pode acessar os membros (atributos e metodos) de uma classe.
+
+        Neste tutorial vamos explorar como public e private
+        e como o compotamentpo padrão (default) funcionam.*
+
+        // * Problema inicial
+        vamos analisar o seguinte codigo para entender os erros
+        relacionados aos modificadores de acesso.
+
+            public class Main{
+            public String nome;
+            // Atributo de acesso publico
+
+            private double salary;
+            // Atributo com acesso privado
+
+                public static void main(String)[] args)
+                {
+                {
+
+                class Pessoa {
+                void criaMai{
+                Main meuMain = new Main();
+                System.out.println(meuMain.salary);
+                ERRO! salary é privado
+                }
+                }
+
+                                    O que está acontecendo?
+                                    nome: é um atributo publico, o que significa que ele pode
+                                    ser acessao diretamento por qualque classe
+
+                                    salary: é um atributo privado, ou seja, ele só pode ser acessado
+                                    dentro da propria classe Main. Quando tentamos acessa-lo na classe
+                                    Pessoa, ocorre um erro de compilação.
+
+
+               2. Entendendo o Funcionamento dos Modificadores de acesso
+                        2.1 Public: Um membro declarado como public pode
+                        ser acessado por qualquer classe em qualquer pacote.
+
+                                Exemplo de atributo publico:
+
+                                    public class Main{
+                                    public String nome;
+                                        // Pode ser acesado por qualquer classe
+                                        }
+                                    class Pessoa{
+                                    void criaMain() {
+                                    Main meuMain = new Main();
+                                    meuMain.nome = "João";
+                                        // Funciona normalmente
+                                        }
+                                        }
+                              Ótimo para membros que precisam ser visiveis globalmente.
+
+               2.2 Private
+                        Um membro declarado como private só pode ser acessado dentro da mesma classe.
+                        Para acessar ou modificar atributos privados de fora da clasee, susamos métodos oublicos (getters  e setters)
+                            Exemplo:
+                                public class Main{
+                                private double salary;
+                                // Atributo privado
+
+                            // Método para atualizar o salary
+                                public void ataualizarSalario(double novoSalario) {
+                                    this.salary = novoSalario;
+                                    }
+
+                            // Método para acessar salary
+                                public double getSalary() {
+                                    retur this.salary;
+                                }
+                                }
+
+                                class Pessoa{
+                                void criaMain() {
+                                Mai meuMain = new Main();
+                                meuMain.atualizaSalario(4000.0);
+                                    // Atualiza salary usando método publico
+                                System.out.println(meuMain.getSalary());
+                                    // Acessa salaey usando um getter
+
+                                Otimo para proteger proteger dados sensiveis, como senhas,
+                                    salarios ou informações pessoais.
+
+               2.3 Default (Padrão)
+                            Quando um membro não possui nenhum modificador de acesso
+                            especificado, ele tem o comportamento default.
+
+                            Um membro default é acessivel apenas por classes dentro do mesmo pacote
+
+                                    Exemplo:
+                                        class Main {
+                                        String endereco;
+                                            // Default (sem modificador)
+                                            }
+
+                                            class pessoa
+                                            void criMain() {
+                                            Main meuMain = new Main();
+                                            meuMain.endereco = "Rua A, 123",
+                                                // Funciona porque está no mesmo pacote
+                                            }
+                                            }
+                                                Ótimo para: Membros que devem ser visiveis apenas dentro do mesmo pacote.
+
+
+                3.0 Porque Usar Getters e Setters
+                            Ao usar atributos privados, criamos métodos publicos para acessa-los e modifica-los.
+                            Isso permite:
+                            Encapsulamento; controlar os atributos que são acessados ou alterados.
+                            Validações; Adicionar regras antes de modificar atributos
+
+                                Exemplo de validação:
+                                        public class Main {
+                                        private double salary;
+
+                                        public void atualizaSalario(double novoSalario) {
+                                        if (novoSalario > 0) { // Validação
+                                        this.salary = novoSalario;
+                                        } else {
+                                            System.out.println("Salario inválido");
+                                            }
+                                            }
+
+                                            public double getSalary() {
+                                                return this.salary;
+                                                }
+                                                }
+
+                4.0
+                    Regras para Classes Publicas
+                        Somente uma classe pode ser publica por aquivo
+                        O nome do arquivo deve ser o mesmo da classe publica
+
+                        Exemplo:
+                            // Arquivo: Main.java
+                            public class Main {
+                            // Classe publica
+                            }
+                            class pessoa
+                            // Calsse com acesso default
+                            }
+                                Recebemos um erro de compilação
+
+                5.0 Funcionamento geral dos Modificadores
+                       Resumo da Acessibilidade
+
+                       Modificador   Mesma classe  Mesmo pacote Subclasse(OutroPacote)  Qualquer Lugar
+
+                       public           Sim            Sim                Sim                   Sim
+                       private          Sim            Não                Não                   Não
+                       default          Sim            Sim                Não                   Não
+
+                6.0 Conclusão
+                    - Use `private` para proteger atributos e metódos sensíveis.
+                    - Use `public` para métodos e atributos que precisam ser amplamente acessíveis.
+                    - O comportamento **default** é útil para classes e membros que devem ser acessados apenas dentro do mesmo pacote.
+                    - Combine encapsulamento com **getters e setters** para aumentar a flexibilidade e segurança do seu código.
+
+                    Próximo Passo: Crie seus próprios exemplos, alterando os
+                      modificadores de acesso para observar como o comportamento muda na prática. Bons estudos!
+
+
+
+
+
