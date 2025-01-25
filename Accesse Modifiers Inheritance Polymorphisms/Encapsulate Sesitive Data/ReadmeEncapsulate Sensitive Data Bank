@@ -1,0 +1,226 @@
+# 📚 Projeto: Encapsulamento em Java - Classe `ContaBancaria`
+
+## **🎯 Objetivo**
+
+O objetivo deste projeto é demonstrar o uso do **encapsulamento** em Java, utilizando modificadores de acesso, especificamente o modificador `private` para proteger um atributo sensível, como o `saldo` de uma conta bancária. Além disso, o projeto visa mostrar como interagir com atributos privados através de métodos públicos.
+
+## **🔧 Implementação**
+
+### **1️⃣ Estrutura do Projeto**
+
+Este projeto consiste em uma única classe `ContaBancaria` com:
+
+- Atributo privado `saldo` para representar o valor da conta.
+- Métodos públicos `depositar(double valor)` e `getSaldo()` para modificar e acessar o saldo.
+
+Além disso, haverá uma classe de teste `TesteContaBancaria`, onde o comportamento da classe `ContaBancaria` será validado, e tentaremos acessar diretamente o atributo `saldo` para entender o erro que ocorre quando tentamos acessá-lo.
+
+### **2️⃣ Classe `ContaBancaria`**
+
+A classe `ContaBancaria` possui:
+
+- **Atributo privado `saldo`:** Apenas acessível dentro da própria classe.
+- **Método público `depositar(double valor)`:** Para adicionar dinheiro ao saldo.
+- **Método público `getSaldo()`:** Para retornar o saldo atual da conta.
+
+#### Código de `ContaBancaria.java`:
+
+```java
+public class ContaBancaria {
+    // Atributo privado
+    private double saldo;
+
+    // Método público para depósito
+    public void depositar(double valor) {
+        if (valor > 0) { // Verificação para depósitos válidos
+            saldo += valor;
+        } else {
+            System.out.println("O valor do depósito deve ser positivo.");
+        }
+    }
+
+    // Método público para consultar o saldo
+    public double getSaldo() {
+        return saldo;
+    }
+}
+```
+
+### **3️⃣ Aula`TesteContaBancaria`**
+
+Na classe `TesteContaBancaria`, instanciamos a classe `ContaBancaria`e tentamos depositar valores nela, utilizando o método `depositar`. Também testamos o acesso direto ao atributo `saldo`, o que resulta em um erro devido ao encapsulamento.
+
+#### Código de `TesteContaBancaria.java`:public class TesteContaBancaria {
+    public static void main(String[] args) {
+        // Instanciando uma conta bancária
+        ContaBancaria conta = new ContaBancaria();
+
+        // Depositando valores na conta
+        conta.depositar(500);
+        conta.depositar(250);
+    
+        // Consultando o saldo via método público
+        System.out.println("Saldo atual: R$" + conta.getSaldo());
+    
+        // Tentativa de acessar o atributo saldo diretamente (causará erro de compilação)
+        // conta.saldo = 1000; // ERRO: saldo tem modificador private e não é acessível fora da classe
+    
+        // Apenas métodos públicos podem manipular o saldo
+        System.out.println("Depósito realizado com sucesso.");
+    }
+}
+
+### **4️⃣ Resultado Esperado**
+
+Quando o programa for executado corretamente, o seguinte será exibido no console:
+
+Saldo atual: R$750.0
+Depósito realizado com sucesso.
+
+**Se tentarmos acessar o atributo `saldo`diretamente, como em:**
+
+conta.saldo = 1000; // ERRO: saldo tem modificador private e não é acessível fora da classe
+
+O compilador mostrará o seguinte erro:
+
+TestContaBancaria.java:13: error: saldo has private access in ContaBancaria
+conta.saldo = 1000;
+^
+1 error
+
+### **Tutorial: Acessando o Atributo `saldo`Diretamente em Java (Erro de Compilação)**
+
+Este tutorial explicará como tentar acessar o atributo `saldo`diretamente em uma classe e o que acontece quando se tenta fazer isso. Vamos entender o motivo pelo qual isso resulta em um **erro de compilação** em Java, devido ao uso do modificador de acesso `private`.
+
+### **Objetivo:**
+
+O objetivo é entender o conceito de **encapsulamento** em Java e como ele impede o acesso direto a atributos privados, como `saldo`em uma classe `ContaBancaria`.
+
+#### **1️⃣ Criando a Classe`ContaBancaria`**
+
+Primeiro, crie uma classe chamada `ContaBancaria`com o atributo `saldo`declarado como `private`. A seguir, adicione métodos para depositar e obter o saldo.
+
+```
+Java
+public class ContaBancaria {
+    // Atributo privado
+    private double saldo;
+
+    // Método público para depósito
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+        } else {
+            System.out.println("O valor do depósito deve ser positivo.");
+        }
+    }
+
+    // Método público para consultar o saldo
+    public double getSaldo() {
+        return saldo;
+    }
+}
+
+```
+
+#### **2️⃣ Criando a Classe`TesteContaBancaria`**
+
+Agora, crie uma aula de teste chamada `TesteContaBancaria`. Nela, você tentará acessar o atributo `saldo`diretamente e verá o erro que ocorrerá.
+
+public class TesteContaBancaria {
+    public static void main(String[] args) {
+        // Instanciando uma conta bancária
+        ContaBancaria conta = new ContaBancaria();
+
+        // Depositando valores na conta
+        conta.depositar(500);
+        conta.depositar(250);
+    
+        // Consultando o saldo via método público
+        System.out.println("Saldo atual: R$" + conta.getSaldo());
+    
+        // Tentativa de acessar o atributo saldo diretamente (causará erro de compilação)
+        // conta.saldo = 1000; // ERRO: saldo tem modificador private e não é acessível fora da classe
+    
+        // Apenas métodos públicos podem manipular o saldo
+        System.out.println("Depósito realizado com sucesso.");
+    }
+}
+
+#### **3️⃣ Tentando acessar o Atributo `saldo`diretamente**
+
+Em `TesteContaBancaria`, tente acessar o atributo `saldo`diretamente de fora da aula `ContaBancaria`, como mostrado abaixo:
+
+```
+// Tentar acessar o atributo saldo diretamente (causará erro de compilação)
+conta.saldo = 1000; // ERRO: saldo tem modificador private e não é acessível fora da classe
+
+```
+
+#### **4️⃣ Resultado Esperado (Erro de Compilação)**
+
+Ao compilar o código, você verá o seguinte **erro de compilação** :
+
+TestContaBancaria.java:13: error: saldo has private access in ContaBancaria
+conta.saldo = 1000;
+^
+1 error
+
+
+
+
+
+### **📦 Explicação do Erro**
+
+- **Encapsulamento e Modificador `private`:** O erro ocorre porque o atributo `saldo`foi declarado como `private`, o que significa que ele só pode ser acessado diretamente dentro da própria classe `ContaBancaria`. Qualquer tentativa de acesso direto de fora da classe resultará em erro de compilação.
+- **Por que usar `private`?** O modificador `private`garante que o saldo só possa ser alterado ou acessado por métodos controlados, como `depositar`e `getSaldo`. Isso ajuda a proteger a integridade dos dados e evita alterações indesejadas fora da classe.
+
+### **5️⃣ O Conceito de Encapsulamento:**
+
+Esse comportamento é um exemplo de **encapsulamento** , um dos pilares da programação voltada para objetos. O encapsulamento garante que os dados de um objeto sejam protegidos contra acessos ou modificações externas não controladas.
+
+- Por que ou `saldo`é `private`?
+
+  - O atributo `saldo`é marcado como `private`para garantir que ninguém de fora da classe possa modificá-lo diretamente, sem passar por uma verificação controlada, como no método `depositar(double valor)`.
+
+- Como acessar e modificar o `saldo`corretamente?
+
+  - O acesso ao `saldo`deve ser feito por meio dos métodos públicos de classe, como `depositar(double valor)`e `getSaldo()`.
+  - Isso evita que o saldo seja alterado diretamente de maneira insegura, permitindo que você adicione verificações ou outras lógicas nos métodos antes de modificar o valor.
+
+  ### **6️⃣ Solução (Acessando `saldo`a Forma Correta)**
+
+  A maneira correta de acessar e modificar o saldo é por meio dos métodos públicos definidos na classe, como `depositar`e `getSaldo`. Veja como ficaria a classe de teste funcionando corretamente:
+
+  public class TesteContaBancaria {
+      public static void main(String[] args) {
+          // Instanciando uma conta bancária
+          ContaBancaria conta = new ContaBancaria();
+
+          // Depositando valores na conta
+          conta.depositar(500);
+          conta.depositar(250);
+      
+          // Consultando o saldo via método público
+          System.out.println("Saldo atual: R$" + conta.getSaldo());
+      
+          // Não podemos acessar diretamente o saldo, apenas através de métodos.
+          // conta.saldo = 1000; // Isso geraria erro de compilação!
+      
+          // Apenas métodos públicos podem manipular o saldo
+          System.out.println("Depósito realizado com sucesso.");
+      }
+  }
+
+  o executar o código, o saldo será manipulado corretamente por meio do método `depositar()`, e o acesso ao saldo é feito apenas com o método `getSaldo()`.
+
+## **🔑 Conclusão**
+
+- O **encapsulamento** protege os atributos da classe de acessos não autorizados, garantindo que apenas métodos controlados possam alterar ou acessar esses dados.
+- Ao tentar acessar o atributo `saldo`diretamente, o compilador gera um erro de compilação porque `saldo`é `private`.
+- A maneira adequada de acessar ou modificar o saldo é através de métodos públicos como `depositar()`e `getSaldo()`.
+- O uso do modificador `private`para o atributo `saldo`é uma prática de **encapsulamento** , o que torna a classe mais segura e evita a manipulação indevida dos dados.
+- Apenas métodos públicos como `depositar`e `getSaldo`podem ser usados para interagir com o saldo, garantindo que o comportamento da classe seja controlado.
+
+
+

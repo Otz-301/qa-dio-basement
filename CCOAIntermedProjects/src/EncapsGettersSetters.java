@@ -1,7 +1,7 @@
 // Objetivo: Criar uma classe ContaBancaria que
 // encapsula seus atributos e seus metodos getters e setters para acesso
 
-        public class ContaBancaria{
+        public class ContaBancaria {
             public String getTitular(){
                     return titular;
             }

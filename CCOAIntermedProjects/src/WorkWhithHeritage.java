@@ -5,7 +5,7 @@
     String nome;
     double salario;
     }
-    public void exivirInformacoes(){
+    public void exibirInformacoes(){
         System.out.println("Nome: " + nome +", Salario: R$" + salario);
     }
     class Gerente extends Funcionario{
@@ -27,4 +27,7 @@
                 // 6500.00
             }
         }
+    }
+
+    public void main() {
     }
