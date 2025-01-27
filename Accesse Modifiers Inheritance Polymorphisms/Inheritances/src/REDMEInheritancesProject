@@ -1,0 +1,203 @@
+### **Tentando acessar atributos herdados diretamente em Java (erro de encapsulamento)**
+
+Neste tutorial, vamos explorar o que acontece quando tentamos acessar diretamente atributos da **superclasse** em uma **subclasse** ou em um programa principal, e como isso pode resultar em erros dependendo do modificador de acesso usado. Além disso, entenderemos como corrigir esses problemas e trabalhar corretamente com herança em Java.
+
+##  **Objetivo:**
+
+Demonstrar o comportamento de acesso a atributos herdados e entender por que o uso de modificadores como `private`e `protected`influenciar o acesso em herança.
+
+
+
+### **1️⃣ Estrutura do Projeto**
+
+Vamos trabalhar com as seguintes aulas baseadas no exemplo anterior:
+
+#### **Superclasse`Ser`**
+
+public class Ser {
+    // Atributos privados
+    private String nome;
+    private int idade;
+
+    // Métodos para manipular os atributos
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    
+    public void mostrarInformacoes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+    }
+}
+
+Subclasse`Pessoa`
+
+public class Pessoa extends Ser {
+    // Atributo exclusivo da subclasse
+    private String sobrenome;
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+    
+    public void mostrarInformacoesCompletas() {
+        mostrarInformacoes(); // Método herdado da superclasse
+        System.out.println("Sobrenome: " + sobrenome);
+    }
+}
+
+
+
+Classe `Main`(Principal)
+
+public class Main {
+    public static void main(String[] args) {
+        Pessoa pessoa = new Pessoa();
+
+        // Configurando atributos via métodos públicos
+        pessoa.setNome("Fernanda");
+        pessoa.setIdade(22);
+        pessoa.setSobrenome("Silva");
+    
+        // Mostrando as informações completas
+        pessoa.mostrarInformacoesCompletas();
+    
+        // Tentativa de acessar diretamente os atributos herdados (causará erro)
+        // pessoa.nome = "Carlos"; // ERRO: 'nome' tem acesso privado na classe 'Ser'
+        // pessoa.idade = 30; // ERRO: 'idade' tem acesso privado na classe 'Ser'
+    
+        // Mostrando que só métodos controlados podem acessar os dados
+        System.out.println("Acesso controlado via métodos foi bem-sucedido.");
+    }
+}
+
+### **2️⃣ Tentativa de acessar atributos herdados diretamente**
+
+Na classe `Main`, tentaremos acessar diretamente os atributos `nome`e `idade`da superclasse `Ser`, usando o objeto `pessoa`da subclasse `Pessoa`:
+
+// Tentativa de acesso direto aos atributos privados (causa erro de compilação)
+pessoa.nome = "Carlos"; // ERRO
+pessoa.idade = 30;      // ERRO
+
+
+
+### **3️⃣ Resultado Esperado (Erro de Compilação)**
+
+Ao compilar o código, você verá erros semelhantes a este:
+
+Main.java:13: error: nome has private access in Ser
+        pessoa.nome = "Carlos";
+               ^
+Main.java:14: error: idade has private access in Ser
+        pessoa.idade = 30;
+               ^
+
+### **4️⃣ Por que o erro aconteceu?**
+
+Os atributos `nome`e `idade`na classe `Ser`estão marcados como `private`, o que significa que **apenas a própria classe `Ser`pode acessá-los diretamente** . Mesmo que a classe `Pessoa`herde da classe `Ser`, ela não pode acessar diretamente os atributos privados. Essa é uma regra fundamental de encapsulamento em Java.
+
+
+
+### **5️⃣ Como Corrigir ou Trabalhar Com Isso?**
+
+Existem várias maneiras de corrigir ou contornar esse problema, dependendo da necessidade:
+
+
+
+#### **Solução 1: Usar Métodos Públicos (Getter e Setter)**
+
+A maneira correta de acessar atributos privados é por meio de métodos públicos, como `setNome()`e `setIdade()`, que já foram implementados na classe `Ser`.
+
+pessoa.setNome("Carlos");
+pessoa.setIdade(30);
+
+
+
+#### **Solução 2: Usar o Modificador`protected`**
+
+Se você deseja permitir que **subclasses** acessem diretamente os atributos da superclasse, altere o modificador de acesso para `protected`.
+
+// Superclasse Ser
+public class Ser {
+    protected String nome;
+    protected int idade;
+
+    // Métodos permanecem os mesmos
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    
+    public void mostrarInformacoes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+    }
+}
+
+Agora, na subclasse `Pessoa`, você pode acessar os atributos diretamente:
+
+public class Pessoa extends Ser {
+    private String sobrenome;
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+    
+    public void mostrarInformacoesCompletas() {
+        System.out.println("Nome: " + nome); // Acesso direto permitido
+        System.out.println("Idade: " + idade); // Acesso direto permitido
+        System.out.println("Sobrenome: " + sobrenome);
+    }
+}
+
+
+
+### **6️⃣ Conceitos Fundamentais Reforçados**
+
+1. **Encapsulamento** :
+
+   - O uso de `private`proteger os atributos de acessos indevidos, mesmo em subclasses.
+   - Métodos como getters e setters são uma forma recomendada de acesso e modificação de atributos privados.
+
+2. **Modificadores de Acesso** :
+
+   - `private`: Acesso permitido apenas dentro da própria classe.
+   - `protected`: Acesso permitido dentro do mesmo pacote e em subclasses.
+   - `public`: Acesso permitido em qualquer lugar.
+
+   ### **7️⃣ Resultado Final (Saída)**
+
+   Quando corrigido para usar métodos públicos ou modificadores protetores, o programa exibirá o resultado esperado:
+
+   Nome: Fernanda
+   Idade: 22
+   Sobrenome: Silva
+   Acesso controlado via métodos foi bem-sucedido.
+
+   ### **Conclusão**
+
+   - **Herança** permite a reutilização de código e a organização de classes relacionadas.
+   - **O encapsulamento** protege atributos sensíveis de acessos diretos, garantindo a integridade dos dados.
+   - Use métodos públicos ou modificadores como `protected`para permitir acesso seguro aos atributos da superclasse.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
