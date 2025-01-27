@@ -1,0 +1,121 @@
+# 📚 Biblioteca de Mídias
+
+Este projeto apresenta um sistema para gerenciar diferentes tipos de mídias, como livros, filmes e músicas, usando conceitos de herança e polimorfismo em Java.
+
+---
+
+## 🎯 **Objetivo**
+
+Criar uma superclasse `Midia` e subclasses específicas para gerenciar informações relacionadas a livros, filmes e músicas. O projeto demonstra como usar herança para organizar dados e polimorfismo para manipular objetos de forma genérica.
+
+---
+
+## 📝 **Estrutura do Projeto**
+
+### **Superclasse `Midia`**
+A classe base que contém atributos e métodos genéricos aplicáveis a todas as mídias.
+
+- **Atributos**:
+  - `titulo`: Título da mídia.
+  - `autor`: Autor ou criador da mídia.
+
+- **Métodos**:
+  - `exibirInformacoes()`: Exibe os detalhes gerais da mídia.
+
+```java
+class Midia {
+    String titulo;
+    String autor;
+
+    void exibirInformacoes() {
+        System.out.println("Título: " + titulo + ", Autor: " + autor);
+    }
+}
+
+Subclasses Específicas
+Cada subclasse adiciona atributos e sobrescreve o método exibirInformacoes()para exibir detalhes específicos.
+
+Livro :
+Atributo adicional : numeroDePaginas.
+Método sobrescrito : Exibe o título, autor e número de páginas.
+
+class Livro extends Midia {
+    int numeroDePaginas;
+
+    @Override
+    void exibirInformacoes() {
+        System.out.println("Livro - " + titulo + " por " + autor + ", Páginas: " + numeroDePaginas);
+    }
+}
+
+2. Filme :
+   Atributo adicional : duracao(em horas).
+   Método sobrescrito : Exibe o título, autor e duração.
+
+   class Filme extends Midia {
+       double duracao;
+
+       @Override
+       void exibirInformacoes() {
+           System.out.println("Filme - " + titulo + " por " + autor + ", Duração: " + duracao + " horas");
+       }
+   }
+
+3. Música :
+   Atributo adicional : genero.
+   Método sobrescrito : Exiba o título, autor e gênero.
+
+   class Musica extends Midia {
+       String genero;
+
+       @Override
+       void exibirInformacoes() {
+           System.out.println("Música - " + titulo + " por " + autor + ", Gênero: " + genero);
+       }
+   }
+
+Polimorfismo no Main
+Demonstre o uso do polimorfismo ao criar um array Midiaque contém instâncias de diferentes subclasses. O método exibirInformacoes()é chamado para cada objeto.
+
+public class Biblioteca {
+    public static void main(String[] args) {
+        Livro livro = new Livro();
+        livro.titulo = "O Senhor dos Anéis";
+        livro.autor = "J.R.R. Tolkien";
+        livro.numeroDePaginas = 1216;
+
+        Filme filme = new Filme();
+        filme.titulo = "A Origem";
+        filme.autor = "Christopher Nolan";
+        filme.duracao = 2.8;
+
+        Musica musica = new Musica();
+        musica.titulo = "Bohemian Rhapsody";
+        musica.autor = "Queen";
+        musica.genero = "Rock";
+
+        Midia[] midias = {livro, filme, musica};
+
+        for (Midia midia : midias) {
+            midia.exibirInformacoes();
+        }
+    }
+}
+
+Saída Esperada
+Livro - O Senhor dos Anéis por J.R.R. Tolkien, Páginas: 1216
+Filme - A Origem por Christopher Nolan, Duração: 2.8 horas
+Música - Bohemian Rhapsody por Queen, Gênero: Rock
+
+🧱 Conceitos Fundamentais
+Herança : As subclasses herdam atributos e métodos da superclasse Midia.
+Sobrescrita de Métodos : Cada subclasse redefine o método exibirInformacoes()para exibir detalhes exclusivos.
+Polimorfismo : Um array que Midiapermite que objetos de diferentes subclasses sejam manipulados de maneira uniforme.
+
+ Como Executar
+Copie o código das classes Midia, Livro, Filmee Musicapara um editor ou IDE de sua preferência.
+Crie a classe principal Bibliotecae insira o código do método main.
+Compile e execute o programa para observar a saída.
+
+🌟 Aprendiz
+Este projeto demonstra como herança e polimorfismo pode ser usado para criar sistemas organizados e flexíveis em Java. Experimente adicionar novas subclasses, como Podcastou Audiobook, para expandir a funcionalidade!
