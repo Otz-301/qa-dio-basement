@@ -1,0 +1,19 @@
+<dependencies>
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>YOUR_CUCUMBER_VERSION</version>
+    </dependency>
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-spring</artifactId>
+        <version>YOUR_CUCUMBER_VERSION</version>
+    </dependency>
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>YOUR_SELENIUM_VERSION</version>
+    </dependency>
+</dependencies>
+
+
